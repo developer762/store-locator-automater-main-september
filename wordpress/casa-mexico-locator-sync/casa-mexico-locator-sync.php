@@ -116,7 +116,7 @@ function cmx_locator_sync()
 
     $payload['locations'] = array_values(array_filter($payload['locations'], function ($loc) {
         $tab = isset($loc['tabName']) ? strtolower((string) $loc['tabName']) : '';
-        return strpos($tab, 'november') !== false && strpos($tab, '2026') !== false;
+        return strpos($tab, 'september') !== false && strpos($tab, '2026') !== false;
     }));
 
     $validated = cmx_locator_validate_payload($payload, (int) $options['minimum_locations']);

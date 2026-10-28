@@ -7,19 +7,19 @@
     window.CMX_LOCATOR = {};
   }
 
-  function isNovember2026Sheet(tabName) {
+  function isSeptember2026Sheet(tabName) {
     if (!tabName) return false;
     var t = String(tabName).toLowerCase();
-    return t.indexOf('november') !== -1 && t.indexOf('2026') !== -1;
+    return t.indexOf('september') !== -1 && t.indexOf('2026') !== -1;
   }
 
   function parseAndEmit(payload) {
     if (!payload || !Array.isArray(payload.locations)) {
       throw new Error('Locator feed has an invalid shape.');
     }
-    // November 2026 filter: only keep locations from sheets containing "November" AND "2026"
+    // September 2026 filter: only keep locations from sheets containing "September" AND "2026"
     payload.locations = payload.locations.filter(function(loc) {
-      return isNovember2026Sheet(loc.tabName);
+      return isSeptember2026Sheet(loc.tabName);
     });
     payload.count = payload.locations.length;
     window.CMX_LOCATOR.locations = payload.locations;

@@ -242,18 +242,18 @@
     return 'Store Locator';
   }
 
-  function isNovember2026Sheet(tabName) {
+  function isSeptember2026Sheet(tabName) {
     if (!tabName) return false;
     var t = String(tabName).toLowerCase();
-    return t.indexOf('november') !== -1 && t.indexOf('2026') !== -1;
+    return t.indexOf('september') !== -1 && t.indexOf('2026') !== -1;
   }
 
   function setLocationsData(locations) {
     if (!Array.isArray(locations)) return;
 
-    // November 2026 filter: only display locations from sheets containing "November" AND "2026"
+    // September 2026 filter: only display locations from sheets containing "September" AND "2026"
     locations = locations.filter(function(loc) {
-      return isNovember2026Sheet(loc.tabName);
+      return isSeptember2026Sheet(loc.tabName);
     });
 
     // Attach resolved tab names
