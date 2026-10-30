@@ -152,7 +152,7 @@
     }
 
     // Load locations feed with bulletproof fallback
-    var fallbackEndpoint = (window.CMX_LOCATOR && window.CMX_LOCATOR.directEndpoint) || 'https://script.google.com/macros/s/AKfycbz8pQv5oekeeTT35zyE22mPqczBBeWI6facsR9vs62jUCzv-kC4eiDxKyYf43nvx9Faew/exec';
+    var fallbackEndpoint = (window.CMX_SEPTEMBER_LOCATOR && window.CMX_SEPTEMBER_LOCATOR.directEndpoint) || 'https://script.google.com/macros/s/AKfycbz8pQv5oekeeTT35zyE22mPqczBBeWI6facsR9vs62jUCzv-kC4eiDxKyYf43nvx9Faew/exec';
 
     function tryDirectEndpoint() {
       if (allLocations && allLocations.length > 0) return;
@@ -169,10 +169,10 @@
         });
     }
 
-    if (window.CMX_LOCATOR && window.CMX_LOCATOR.locations && window.CMX_LOCATOR.locations.length > 0) {
-      setLocationsData(window.CMX_LOCATOR.locations);
-    } else if (window.CMX_LOCATOR && typeof window.CMX_LOCATOR.load === 'function') {
-      window.CMX_LOCATOR.load().then(function (payload) {
+    if (window.CMX_SEPTEMBER_LOCATOR && window.CMX_SEPTEMBER_LOCATOR.locations && window.CMX_SEPTEMBER_LOCATOR.locations.length > 0) {
+      setLocationsData(window.CMX_SEPTEMBER_LOCATOR.locations);
+    } else if (window.CMX_SEPTEMBER_LOCATOR && typeof window.CMX_SEPTEMBER_LOCATOR.load === 'function') {
+      window.CMX_SEPTEMBER_LOCATOR.load().then(function (payload) {
         if (payload && payload.locations) setLocationsData(payload.locations);
       }).catch(function (err) {
         console.warn('Casa Mexico map feed error, trying direct endpoint:', err);
